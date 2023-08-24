@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="payment-page.css" media="screen">
+<link rel="stylesheet" href="nicepage2.css" media="screen">
+ <script class="u-script" type="text/javascript" src="jquery2.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage2.js" defer=""></script>
+<title> Dashboard </title>
+<link rel = "icon" href= "images/LOGO1.png" 
+        type = "image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <body>
+  <header class="u-clearfix u-header u-header" id="sec-8334"><div class="u-clearfix u-sheet u-sheet-1">
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/Contactus">contact us</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/transaction">transactions</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/profile">profile</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/signout">signout</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/Contactus">contact us</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/transaction">transactions</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/profile">profile</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/signout">signout</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        <h6 class="u-text u-text-1">Hi {{name}}</h6>
+      </div></header>
+    <script type="text/javascript" src="payment.js"></script>
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+      function validateForm() {
+        // Selecting the input element and get its value
+        let inputVal = document.forms["form1"]["UPI ID"].value;
+
+        //var town ='garstang';
+        var town = inputVal;
+        const response =fetch('https://api.razorpay.com/v1/payments/validate/vpa',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorisation':'Basic cnpwX3Rlc3RfQ0NyUjJWeGN6WjBJTm06ekhTcEVNMFRBclg1RVBhQkoxSzAxa0pW'
+    }, data={'vpa':inputval})
+        const myJson = await response.json();
+        var infor=myjson['success']
+        
+
+        const myJson1 = await response1.json();
+        var subCode=myjson1['sunCode']
+        var message=myjson1['message']
+        console.log(message)
+        console.log(message)
+        if(infor==true){
+             var name=myjson['customer_name'];
+             document.getElementById("UPI ID").innerHTML = "transferring to "+name;
+             return true;}
+        else{
+          document.getElementById("UPI ID").innerHTML = "please check your upi id";
+          return false;}
+                   
+    </script>
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>PAYMENT DETAILS</h3>
+            <p>Please enter your payment details to countinue.</p>
+            <font color="red">
+            {% if error %}  
+               <p><strong>Error</strong>: {{error}}</p>  
+            {% endif %}
+            </font>
+          </div>
+        </div>
+        <form action="/orderpaylater" method="POST" name="form1">
+          <input type="text" placeholder="Enter your UPI ID TO TRANSFER" oninput="validateForm()" name="UPI ID" required="required"/>
+          <input type="number" placeholder="amount" name="amountin" required="required"/>
+          <button>Countinue</button>
+        </form>
+      </div>
+    </div>
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-f4cc"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="/terms&conditions" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">terms and conditions&nbsp;</a> &nbsp; &nbsp; &nbsp; &nbsp;<a href="/privacy-policy" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2"> privacy policy</a>
+        </p>
+      </div></footer>
+</body>
+</body>
+</html>

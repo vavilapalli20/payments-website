@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="nicepage2.css" media="screen">
+<title> Contact Us </title>
+<link rel = "icon"  href= "images/LOGO1.png" 
+        type = "image/x-icon">
+</head>
+<body>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>Contact Us</h3>
+            <p><b>you can reach us at 'support@cardtobank.net' or you can submit this form<b><br>  <br>we will resolve your query within <b>48 hours<b></p>
+            <font color="green">
+            {% if success %}  
+               <p><strong>Success</strong>: <b>{{success}}<b></p>  
+            {% endif %}
+            </font>
+          </div>
+        </div>
+        <form action="/queryraised" method="POST">
+          <input type="text" placeholder="enter your email" name="email"/>
+          <input type="text" placeholder="enter your name" name="name"/>
+          <textarea id="subject" name="body" placeholder="Write something.." style="height:200px"></textarea>
+          <button>submit</button>
+          <p class="message"> <a href="/"><b>return to home<b></a></p>
+        </form>
+      </div>
+    </div>
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-f4cc"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="/terms&conditions" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">terms and conditions&nbsp;</a> &nbsp; &nbsp; &nbsp; &nbsp;<a href="/privacy-policy" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2"> privacy policy</a>
+        </p>
+</body>
+</body>
+</html>

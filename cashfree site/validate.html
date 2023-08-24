@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="nicepage2.css" media="screen">
+<title> validation </title>
+<link rel = "icon"  href= "images/LOGO1.png" 
+        type = "image/x-icon">
+</head>
+<body>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>SIGNUP</h3>
+            <p>Please enter otp.</p>
+            <font color="red">
+            {% if error %}  
+               <p><strong>error</strong>: {{error}}</p>  
+            {% endif %}
+            </font>
+            <font color="green">
+            {% if success %}  
+               <p><strong>Success</strong>: {{success}}</p>  
+            {% endif %}
+            </font>
+          </div>
+        </div>
+        <form action="/validateotp" method="POST">
+          <input type="text" placeholder="enter your otp" name="otp"/>
+          <p class= "message">    </p>
+          <p class= "message">    </p>
+          <p class= "message"><a href="/resend"><b>resend otp</b>
+          <p class= "message">    </p>
+          <p class= "message">    </p>
+          <p class = "message">I agree to<a href="/terms&conditions"> Terms and Conditions </a><p>
+          <button>Validate</button>
+        </form>
+      </div>
+    </div>
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-f4cc"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="/terms&conditions" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">terms and conditions&nbsp;</a> &nbsp; &nbsp; &nbsp; &nbsp;<a href="/privacy-policy" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2"> privacy policy</a>
+        </p>
+</footer>
+</body>
+</body>
+</html>

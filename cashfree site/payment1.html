@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard
+	</title>
+	<link rel = "icon" src = "images/LOGO1.png" 
+        type = "image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h2 style="text-align: center;">Payment Page of your Website</h2>
+<br><br>
+<h4 style="text-align: center;">Your order has been placed!</h4>
+<h5 style="text-align: center;">Transfering to {{customer_name}}</h5>
+<br>
+    <form action="thankyou" method="POST" style="text-align: center;">
+        <script 
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key= {{key_id}}                    
+            data-amount={{order_detail.amount}}     
+            data-currency="INR"             
+            data-order_id={{order_detail.id}} 
+            data-prefill.name= "Gaurav Kumar",
+            data-prefill.email= "gaurav.kumar@example.com",
+            data-prefill.contact= "9999999999",  
+            data-buttontext="PROCEED WITH PAYMENT"     
+            data-name="C2B"                
+            data-description="Test transaction"     
+            >
+            </script> 
+            
+            
+           
+        
+    </form>
+    
+    
+    
+            
+            
+</body>
+</html>
+
+<!-- DETAILS OF EACCH DATA_ATTRIBUTES GIVEN BELOW -->
+
+<!-- 
+    <form action="capture" method="POST">
+        <script 
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key= {{key_id}}                    // Key ID from backend (obtained from Razorpay Dashboard)
+            data-amount={{order_detail.amount}}     // Amount from backend
+            data-currency="INR"             
+            data-order_id={{order_detail.id}}       // Order ID from backend (obtained from Razorpay api response)
+            data-buttontext="Pay with Razorpay"     // Text visible on the button
+            data-name="Company Name"                // Name of the Company or to whom the payment is made to
+            data-description="Test transaction"     
+            // data-image="https://example.com/your_logo.jpg" // Logo of the Company visible while payment
+            // data-prefill.name="Gaurav Kumar"         //Customer name
+            // data-prefill.email="gaurav.kumar@example.com" //Customer email
+            // data-prefill.contact="9999999999"        // Customer number
+            // data-theme.color="#F37254"          //Color theme of the patment window
+            >
+            </script>         
+
+    </form> -->

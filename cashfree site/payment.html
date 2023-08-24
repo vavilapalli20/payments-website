@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>payment page</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+    <link rel="stylesheet" href="payment-page.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.7.1, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Site1"
+}</script>
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+      function validateForm() {
+        // Selecting the input element and get its value
+        let inputVal = document.forms["form1"]["UPI ID"].value;
+
+        //var town ='garstang';
+        var town = inputVal;
+        const response =fetch('https://api.razorpay.com/v1/payments/validate/vpa',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorisation':'Basic cnpwX3Rlc3RfQ0NyUjJWeGN6WjBJTm06ekhTcEVNMFRBclg1RVBhQkoxSzAxa0pW'
+    }, data={'vpa':inputval})
+        const myJson = await response.json();
+        var infor=myjson['success']
+        
+
+        const myJson1 = await response1.json();
+        var subCode=myjson1['sunCode']
+        var message=myjson1['message']
+        console.log(message)
+        console.log(message)
+        if(infor==true){
+             var name=myjson['customer_name'];
+             document.getElementById("UPI ID").innerHTML = "transferring to "+name;
+             return true;}
+        else{
+          document.getElementById("UPI ID").innerHTML = "please check your upi id";
+          return false;}
+                   
+    </script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="payment page">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode">
+    <section class="u-align-center u-clearfix u-section-1" id="sec-05eb">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+                <a href="https://nicepage.com/static-site-generator" class="u-btn u-btn-round u-button-style u-custom-item u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">transactions</a>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
+                <a href="https://nicepage.com/k/aesthetic-html-templates" class="u-btn u-btn-round u-button-style u-custom-item u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">contact us</a>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                <a href="https://nicepage.com/joomla-page-builder" class="u-btn u-btn-round u-button-style u-custom-item u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3">log out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h1 class="u-text u-text-default u-text-1">
+          <span style="font-style: italic; font-weight: 400;">Hi {{name}}</span>
+          <br>
+          <span style="font-size: 1.125rem;"> ({{email}})</span>
+          <br>
+        </h1>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-palette-1-base u-section-2" id="carousel_aa46">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-1"> enter your details for transfer</h2>
+        <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-container-style u-group u-radius-20 u-shape-round u-white u-group-1">
+          <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-container-layout-1">
+            <div class="u-form u-form-1">
+              <form action="/order" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"  name="form1" style="padding: 10px;">
+                <div class="u-form-group u-form-name">
+                  <label class="u-label">UPI ID:</label>
+                  <input type="text" placeholder="Enter your UPI ID" oninput="validateForm()" id="name-61fc" name="UPI ID" class="u-border-1 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-20" required="">
+                </div>
+                <div class="u-form-group u-form-group-2">
+                  <label  class="u-label">amount</label>
+                  <input type="text" placeholder="amount to transfer"  name="amountin" class="u-border-1 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-20" required="required">
+                </div>
+                <br>
+                  <button type="submit" onclick="validateForm()" > proceed to pay </button>
+                </br>
+                <input type="hidden" value="" name="recaptchaResponse">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-f4cc"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="https://nicepage.com/c/gallery-website-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">terms and conditions&nbsp;</a> &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://nicepage.com/k/arabic-style-html-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2"> privacy policy</a>
+        </p>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  </body>
+</html>
